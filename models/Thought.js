@@ -1,4 +1,4 @@
-const { Schema, Types } = require("mongoose");
+const { Schema, Types, model } = require("mongoose");
 const reactionSchema = require("./Reaction");
 const thoughtSchema = new Schema({
   thoughtText: {
@@ -18,6 +18,6 @@ const thoughtSchema = new Schema({
   },
   reactions: [reactionSchema],
 });
-const Thought = model("thought", thoughtSchema);
+const Thought = model("Thought", thoughtSchema);
 
 module.exports = Thought;

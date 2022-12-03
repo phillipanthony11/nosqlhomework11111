@@ -1,4 +1,5 @@
 const Thought = require("../models/Thought");
+
 module.exports = {
   getThought(req, res) {
     Thought.find().then((thoughts) => {
@@ -6,8 +7,13 @@ module.exports = {
     });
   },
   getSingleThought(req, res) {
-    User.findbyId(req.params.id).then((user) => {
-      res.json(Thought.findbyId);
+    Thought.findbyId(req.params.id).then((thoughts) => {
+      res.json(thought);
     });
+  },
+  addThought(req, res) {
+    Thought.create(req.body)
+      .then((thought) => res.json(thought))
+      .catch((err) => res.status(500).json(err));
   },
 };
